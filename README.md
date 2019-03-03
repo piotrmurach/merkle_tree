@@ -247,6 +247,10 @@ To provide your own algorithm use the `:digest` keyword and as value a lambda th
 MerkleTree.new("L1",..., digest: -> (val) { OpenSSL::Digest::SHA256.hexdigest(val) })
 ```
 
+## See Also
+
+- [splay_tree](https://github.com/piotrmurach/splay_tree) – A self-balancing binary tree with amortised access.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
