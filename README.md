@@ -2,14 +2,14 @@
 
 [![Gem Version](https://badge.fury.io/rb/merkle_tree.svg)][gem]
 [![Build Status](https://secure.travis-ci.org/piotrmurach/merkle_tree.svg?branch=master)][travis]
-[![Build status](https://ci.appveyor.com/api/projects/status/2i5lx3tvyi5l8x3j?svg=true)][appveyor]
-[![Maintainability](https://api.codeclimate.com/v1/badges/d5ae2219e194ac99be58/maintainability)][codeclimate]
+[![Build status](https://ci.appveyor.com/api/projects/status/kcbi55cyq2wlfuhc?svg=true)][appveyor]
+[![Maintainability](https://api.codeclimate.com/v1/badges/ce00667c8785a62cd892/maintainability)][codeclimate]
 [![Coverage Status](https://coveralls.io/repos/piotrmurach/merkle_tree/badge.svg)][coverage]
 [![Inline docs](http://inch-ci.org/github/piotrmurach/merkle_tree.svg?branch=master)][inchpages]
 
 [gem]: http://badge.fury.io/rb/merkle_tree
 [travis]: http://travis-ci.org/piotrmurach/merkle_tree
-[appveyor]: https://ci.appveyor.com/project/piotrmurach/merkle_tree
+[appveyor]: https://ci.appveyor.com/project/piotrmurach/merkle-tree
 [codeclimate]: https://codeclimate.com/github/piotrmurach/merkle_tree/maintainability
 [coverage]: https://coveralls.io/r/piotrmurach/merkle_tree
 [inchpages]: http://inch-ci.org/github/piotrmurach/merkle_tree
@@ -41,7 +41,7 @@ Or install it yourself as:
   * [2.3 subtree](#23-subtree)
   * [2.4 height](#24-height)
   * [2.5 size](#25-size)
-  * [2.6 include?](#26-include?)
+  * [2.6 include?](#26-include)
   * [2.7 to_h](#27-to_h)
   * [2.8 to_s](#28-to_s)
   * [2.9 :digest](#29-digest)
