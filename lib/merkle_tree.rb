@@ -148,7 +148,7 @@ class MerkleTree
   #
   # @api public
   def include?(message, index)
-    return false if height.zero? # don't check empty tree
+    return false if empty?
 
     leaf_hash = digest.(message)
 
