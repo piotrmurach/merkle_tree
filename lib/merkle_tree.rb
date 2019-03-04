@@ -57,7 +57,7 @@ class MerkleTree
       Leaf.build(msg, pos, digest: digest)
     end
     @width = @leaves.size
-    build(@leaves)
+    @root  = build(@leaves)
   end
 
   # Check if this tree has any messages
@@ -102,8 +102,7 @@ class MerkleTree
     return Node::EMPTY if nodes.empty?
 
     if nodes.size == 1
-      @root = nodes[0]
-      return @root
+      return nodes[0]
     end
 
     parent_nodes = nodes.each_slice(2).map do |left, right|
