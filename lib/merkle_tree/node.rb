@@ -53,6 +53,18 @@ class MerkleTree
       (left_index..right_index).include?(index)
     end
 
+    def update(digest)
+      @value = digest.(left.value + right.value)
+    end
+
+    def child(index)
+      if left.include?(index)
+        left
+      else
+        right.include?(index) ? right : EMPTY
+      end
+    end
+
     # Find sibling child node for the index
     def sibling(index)
       if left.include?(index)

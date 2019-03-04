@@ -133,6 +133,9 @@ class MerkleTree
   #
   # @param [Integer] index
   #
+  # @return [Array[String,String]]
+  #   an array of direction and hash tuples
+  #
   # @api public
   def auth_path(index)
     traverse(root, index, [])
@@ -159,6 +162,51 @@ class MerkleTree
     hash == root.value
   end
   alias member? include?
+
+  # Visit all direct children collecting child nodes
+  #
+  # @api private
+  def visit(node, index, path)
+    return path if node.leaf? || node == Node::EMPTY
+
+    path << node.child(index)
+
+    visit(node.subtree(index), index, path)
+  end
+
+  # The regeneration path from leaf to root
+  #
+  # @return [Node]
+  #
+  # @api public
+  def regeneration_path(index)
+    visit(@root, index, [@root])
+  end
+
+  # Update a leaf at index position
+  #
+  # @param [String] message
+  #   the new message to hash
+  # @param [Integer] index
+  #   the index of the message to be rehashed
+  #
+  # @return [Leaf]
+  #   the updated leaf
+  #
+  # @api public
+  def update(message, index)
+    return if empty?
+
+    leaf_hash = digest.(message)
+
+    regeneration_path(index).reverse_each do |node|
+      if node.leaf?
+        node.value = leaf_hash
+      else
+        node.update(digest)
+      end
+    end.last
+  end
 
   # Hash representation of this tree
   #

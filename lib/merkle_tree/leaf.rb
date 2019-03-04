@@ -6,7 +6,7 @@ class MerkleTree
 
     attr_reader :height
 
-    attr_reader :value
+    attr_accessor :value
 
     attr_reader :left_index
 
