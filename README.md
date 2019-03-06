@@ -14,7 +14,7 @@
 [coverage]: https://coveralls.io/r/piotrmurach/merkle_tree
 [inchpages]: http://inch-ci.org/github/piotrmurach/merkle_tree
 
-> A merkle tree is a data structure used for efficiently summarizing sets of data, often one-time signatures.
+> A binary tree of one-time signatures known as merkle tree. Often used in distributed systems such as Git, Cassandra or Bitcoin for efficiently summarizing sets of data.
 
 ## Installation
 
