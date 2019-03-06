@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Piotr Murach"]
   spec.email         = ["me@piotrmurach.com"]
 
-  spec.summary       = %q{Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = %q{A binary tree of one-time signatures known as a merkle tree.}
+  spec.description   = %q{A binary tree of one-time singatures known as a merkle tree. Often used in distributed systems such as Git, Cassandra or Bitcoin for efficiently summarizing sets of data.}
   spec.homepage      = "https://github.com/piotrmurach/merkle_tree"
   spec.license       = "MIT"
 
