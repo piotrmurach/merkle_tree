@@ -45,19 +45,28 @@ class MerkleTree
   #
   # @api public
   def initialize(*messages, digest: MerkleTree.default_digest)
-    @root  = Node::EMPTY
-    @width = 0
+    @root   = Node::EMPTY
+    @width  = 0
     @digest = digest
+    @leaves = to_leaves(*messages)
+    @width  = @leaves.size
+    @root   = build(@leaves)
+  end
 
+  # Convert messages to leaf data types
+  #
+  # @param [Array[String]] messages
+  #   the message to digest
+  #
+  # @api private
+  def to_leaves(*messages)
     if messages.size.odd?
       messages << messages.last.dup
     end
 
-    @leaves = messages.each_with_index.map do |msg, pos|
+    messages.each_with_index.map do |msg, pos|
       Leaf.build(msg, pos, digest: digest)
     end
-    @width = @leaves.size
-    @root  = build(@leaves)
   end
 
   # Check if this tree has any messages
