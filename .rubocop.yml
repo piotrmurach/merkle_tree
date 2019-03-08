@@ -1,0 +1,41 @@
+AllCops:
+  TargetRubyVersion: 2.5
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/BlockLength:
+  CountComments: true
+  Max: 25
+  ExcludedMethods: []
+  Exclude:
+    - "spec/**/*"
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+  Max: 10
+
+Metrics/LineLength:
+  Max: 80
+
+Metrics/MethodLength:
+  Max: 20
+
+Style/BlockDelimiters:
+  Enabled: true
+
+Style/CommentedKeyword:
+  Enabled: false
+
+Style/LambdaCall:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
