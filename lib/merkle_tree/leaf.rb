@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class MerkleTree
+  # An object to hold one-time signature
+  # @api private
   class Leaf
     include Comparable
 
@@ -31,7 +33,7 @@ class MerkleTree
     end
 
     def include?(index)
-      (left_index..right_index).include?(index)
+      (left_index..right_index).cover?(index)
     end
 
     def size

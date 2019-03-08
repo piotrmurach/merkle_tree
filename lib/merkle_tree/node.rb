@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class MerkleTree
+  # Holds information about intermediate hashes
+  # @api private
   class Node
     include Comparable
 
@@ -50,7 +52,7 @@ class MerkleTree
     end
 
     def include?(index)
-      (left_index..right_index).include?(index)
+      (left_index..right_index).cover?(index)
     end
 
     def update(digest)
