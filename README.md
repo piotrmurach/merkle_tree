@@ -47,6 +47,7 @@ Or install it yourself as:
   * [2.9 to_h](#29-to_h)
   * [2.10 to_s](#210-to_s)
   * [2.11 :digest](#211-digest)
+* [3. See Also](#3-see-also)
 
 ## 1. Usage
 
@@ -175,15 +176,15 @@ merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4")
 
 To check if a message `L3` is contained in one of the one-time signatures, use the `include?` or `member?` method passing the message and position index:
 
-```
-merkle_tree.contains?("L3", 2)
+```ruby
+merkle_tree.include?("L3", 2)
 # => true
 ```
 
 Conversely, if the message is not part of one-time signature at position indexed:
 
 ```ruby
-merkle_tree.contains?("invalid", 2)
+merkle_tree.include?("invalid", 2)
 # => false
 ````
 
@@ -305,7 +306,7 @@ To provide your own algorithm use the `:digest` keyword and as value a lambda th
 MerkleTree.new("L1",..., digest: -> (val) { OpenSSL::Digest::SHA256.hexdigest(val) })
 ```
 
-## See Also
+## 3. See Also
 
 - [splay_tree](https://github.com/piotrmurach/splay_tree) – A self-balancing binary tree with amortised access.
 
