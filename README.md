@@ -42,10 +42,11 @@ Or install it yourself as:
   * [2.4 height](#24-height)
   * [2.5 size](#25-size)
   * [2.6 include?](#26-include)
-  * [2.7 update](#27-update)
-  * [2.8 to_h](#28-to_h)
-  * [2.9 to_s](#29-to_s)
-  * [2.10 :digest](#210-digest)
+  * [2.7 add](#27-add)
+  * [2.8 update](#28-update)
+  * [2.9 to_h](#29-to_h)
+  * [2.10 to_s](#210-to_s)
+  * [2.11 :digest](#211-digest)
 
 ## 1. Usage
 
@@ -186,7 +187,45 @@ merkle_tree.contains?("invalid", 2)
 # => false
 ````
 
-### 2.7 update
+### 2.7 add
+
+To add new messages to already existing tree use `add` or `<<` method. This action will create a new merkle root and increase tree height.
+
+A merkle tree with 4 messages:
+
+```ruby
+merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4")
+```
+
+Will have the following properties:
+
+```ruby
+merkle_tree.leaves.size
+# => 4
+merkle_tree.height
+# => 2
+merkle_tree.size
+# => 7
+```
+
+To add `L5` and `L6` messages do:
+
+```ruby
+merkle_tree.add("L5", "L6")
+```
+
+This will expand tree to have:
+
+```ruby
+merkle_tree.leaves.size
+# => 6
+merkle_tree.height
+# => 3
+merkle_tree.size
+# => 15
+```
+
+### 2.8 update
 
 You can replace any merkle tree message with a new one using the `update` call, which accepts a new message as a first argument and the index of the message to replace.
 
@@ -204,7 +243,7 @@ merkle_tree.update("L3*", 2)
 # #<MerkleTree::Leaf @value="e9a1dd00f5c5e848f6ca6d8660c5191d76ac5dd8867b7a8b08fb59c5ed2806db" ... >
 ```
 
-### 2.8 to_h
+### 2.9 to_h
 
 You can dump the whole structure of the tree with `to_h` method:
 
@@ -236,7 +275,7 @@ merkle_tree.to_h
 # }
 ```
 
-### 2.9 to_s
+### 2.10 to_s
 
 ```ruby
 merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4")
@@ -256,7 +295,7 @@ merkle_tree.to_s
 #     4a5a97c6433c4c062457e9335709d57493e75527809d8a9586c141e591ac9f2c
 ```
 
-### 2.10 `:digest`
+### 2.11 `:digest`
 
 By default the `SHA-256` is used to create one-time signatures using Ruby's `openssl` package. You can see different [OpenSSl::Digest](https://ruby-doc.org/stdlib-2.6.1/libdoc/openssl/rdoc/OpenSSL/Digest.html).  
 
