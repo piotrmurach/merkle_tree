@@ -121,6 +121,30 @@ class MerkleTree
     build(parent_nodes)
   end
 
+  # Add new message(s)
+  #
+  # @example
+  #   merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4")
+  #   merkle_tree.add("L5", "L6", "L7", "L8")
+  #
+  # @param [Array[String]] messages
+  #   the message to digest
+  #
+  def add(*messages)
+    nodes = to_leaves(*messages)
+    nodes.each { |node| @leaves << node }
+    @width = @leaves.size
+    top_node = Node::EMPTY
+
+    while root.height != top_node.height
+      top_node = build(nodes)
+      nodes = [top_node, top_node]
+    end
+
+    @root = Node.build(@root, top_node)
+  end
+  alias << add
+
   # Traverse tree from root to leaf collecting siblings hashes
   #
   # @param [Node] node
