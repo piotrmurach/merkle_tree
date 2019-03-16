@@ -101,6 +101,8 @@ class MerkleTree
         right.to_s(indent + '  ')
     end
 
+    # An empty node used as placeholder
+    # @api private
     class EmptyNode < Node
       def initialize
         @value  = ''

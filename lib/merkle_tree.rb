@@ -7,6 +7,7 @@ require_relative 'merkle_tree/leaf'
 require_relative 'merkle_tree/node'
 require_relative 'merkle_tree/version'
 
+# A binary tree of one-time signatures known as merkle tree.
 class MerkleTree
   # The tree root node
   attr_reader :root
