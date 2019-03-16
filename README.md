@@ -51,15 +51,55 @@ Or install it yourself as:
 
 ## 1. Usage
 
+Create a new *MerkleTree* by passing all the messages to be hashed:
+
 ```ruby
 merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4")
+```
+
+Then you can use the tree to verify if a message belongs:
+
+```ruby
+merkle_tree.include?("L3", 2) # => true
+```
+
+Or change the message to a new content:
+
+```ruby
+merkle_tree.update("L3*", 2)
+```
+
+You can also check the tree height:
+
+```ruby
+merkle_tree.height # => 2
+```
+
+And how many nodes it has:
+
+```ruby
+merkle_tree.size # => 7
+```
+
+Finally, you can print the contents of the tree to see all the signatures:
+
+```ruby
+merkle_tree.to_s
+# =>
+# 63442ffc2d48a92c8ba746659331f273748ccede648b27f4eacf00cb0786c439
+#   f2b92f33b56466fce14bc2ccf6a92f6edfcd8111446644c20221d6ae831dd67c
+#     dffe8596427fc50e8f64654a609af134d45552f18bbecef90b31135a9e7acaa0
+#     d76354d8457898445bb69e0dc0dc95fb74cc3cf334f8c1859162a16ad0041f8d
+#   8f75b0c1b3d1c0bb2eda264a43f8fdc5c72c853c95fbf2b01c1d5a3e12c6fe9a
+#     842983de8fb1d277a3fad5c8295c7a14317c458718a10c5a35b23e7f992a5c80
+#     4a5a97c6433c4c062457e9335709d57493e75527809d8a9586c141e591ac9f2c
 ```
 
 ## 2. API
 
 ### 2.1 root
 
-To access to root node of the merkle tree use `root` method that will return the tree scheme with all its children and their signatures.
+To access the root node of the merkle tree use the `root` method that will return the tree structure with all its children and their signatures.
 
 For example, given a tree with 4 messages
 
@@ -89,7 +129,7 @@ merkle_tree.root
 #     @value="4a5a97c6433c4c062457e9335709d57493e75527809d8a9586c141e591ac9f2c"
 ```
 
-Since root is a node you can retrieve it's signature using the `value` call:
+Since the root is a node you can retrieve it's signature using the `value` call:
 
 ```ruby
 merkle_tree.root.value
@@ -104,6 +144,13 @@ You can access all the leaves and their one-time signatures using the `leaves` m
 merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4")
 
 merkle_tree.leaves
+# =>
+# [
+# <MerkleTree::Leaf @value="dffe8596...", @left_index=0, @right_index=0, @height=0>,
+# <MerkleTree::Leaf @value="d76354d8...", @left_index=1, @right_index=1, @height=0>,
+# <MerkleTree::Leaf @value="842983de...", @left_index=2, @right_index=2, @height=0>,
+# <MerkleTree::Leaf @value="4a5a97c6...", @left_index=3, @right_index=3, @height=0>
+# ]
 ```
 
 ### 2.3 subtree
@@ -119,28 +166,20 @@ merkle_tree.subtree(2).to_h
 #   value: "63442ffc2d48a92c8ba746659331f273748ccede648b27f4eacf00cb0786c439",
 #   left: {
 #     value: "f2b92f33b56466fce14bc2ccf6a92f6edfcd8111446644c20221d6ae831dd67c",
-#     left: {
-#       value: "dffe8596427fc50e8f64654a609af134d45552f18bbecef90b31135a9e7acaa0",
-#     },
-#     right: {
-#       value: "d76354d8457898445bb69e0dc0dc95fb74cc3cf334f8c1859162a16ad0041f8d",
-#     }
+#     left: { value: "dffe8596427fc50e8f64654a609af134d45552f18bbecef90b31135a9e7acaa0" },
+#     right: { value: "d76354d8457898445bb69e0dc0dc95fb74cc3cf334f8c1859162a16ad0041f8d" }
 #   },
 #   right: {
 #     value: "8f75b0c1b3d1c0bb2eda264a43f8fdc5c72c853c95fbf2b01c1d5a3e12c6fe9a",
-#     left: {
-#       value: "842983de8fb1d277a3fad5c8295c7a14317c458718a10c5a35b23e7f992a5c80",
-#     },
-#     right: {
-#       value: "4a5a97c6433c4c062457e9335709d57493e75527809d8a9586c141e591ac9f2c"
-#     }
+#     left: { value: "842983de8fb1d277a3fad5c8295c7a14317c458718a10c5a35b23e7f992a5c80" },
+#     right: { value: "4a5a97c6433c4c062457e9335709d57493e75527809d8a9586c141e591ac9f2c" }
 #   }
 # }
 ```
 
 ### 2.4 height
 
-Every leaf in the tree has height 0 and the hash function of two leaves has height 1. So the tree has a total height of H if there is N leaves so that N = 2^H.
+Every leaf in the tree has height 0 and the hash function of two leaves has height 1. So the tree has a total height of `H` if there is `N` leaves so that `N = 2^H`.
 
 
 ```ruby
@@ -150,8 +189,7 @@ merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8")
 And since `8 = 2^3` then the height:
 
 ```ruby
-merkle_tree.height
-# => 3
+merkle_tree.height # => 3
 ```
 
 ### 2.5 size
@@ -177,15 +215,13 @@ merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4")
 To check if a message `L3` is contained in one of the one-time signatures, use the `include?` or `member?` method passing the message and position index:
 
 ```ruby
-merkle_tree.include?("L3", 2)
-# => true
+merkle_tree.include?("L3", 2) # => true
 ```
 
 Conversely, if the message is not part of one-time signature at position indexed:
 
 ```ruby
-merkle_tree.include?("invalid", 2)
-# => false
+merkle_tree.include?("invalid", 2) # => false
 ````
 
 ### 2.7 add
@@ -257,21 +293,13 @@ merkle_tree.to_h
 #   value: "63442ffc2d48a92c8ba746659331f273748ccede648b27f4eacf00cb0786c439",
 #   left: {
 #     value: "f2b92f33b56466fce14bc2ccf6a92f6edfcd8111446644c20221d6ae831dd67c",
-#     left: {
-#       value: "dffe8596427fc50e8f64654a609af134d45552f18bbecef90b31135a9e7acaa0"
-#     },
-#     right: {
-#       value: "d76354d8457898445bb69e0dc0dc95fb74cc3cf334f8c1859162a16ad0041f8d"
-#     }
+#     left: { value: "dffe8596427fc50e8f64654a609af134d45552f18bbecef90b31135a9e7acaa0" },
+#     right: { value: "d76354d8457898445bb69e0dc0dc95fb74cc3cf334f8c1859162a16ad0041f8d" }
 #   },
 #   right: {
 #     value: "8f75b0c1b3d1c0bb2eda264a43f8fdc5c72c853c95fbf2b01c1d5a3e12c6fe9a",
-#     left: {
-#       value: "842983de8fb1d277a3fad5c8295c7a14317c458718a10c5a35b23e7f992a5c80"
-#     },
-#     right: {
-#       value: "4a5a97c6433c4c062457e9335709d57493e75527809d8a9586c141e591ac9f2c"
-#     }
+#     left: { value: "842983de8fb1d277a3fad5c8295c7a14317c458718a10c5a35b23e7f992a5c80" },
+#     right: { value: "4a5a97c6433c4c062457e9335709d57493e75527809d8a9586c141e591ac9f2c" }
 #   }
 # }
 ```
