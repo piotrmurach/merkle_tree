@@ -1,6 +1,9 @@
 AllCops:
   TargetRubyVersion: 2.5
 
+Layout/DotPosition:
+    EnforcedStyle: trailing
+
 Lint/AssignmentInCondition:
   Enabled: false
 
@@ -22,10 +25,16 @@ Metrics/CyclomaticComplexity:
   Max: 10
 
 Metrics/LineLength:
-  Max: 80
+  Max: 82
+
+Metrics/ParameterLists:
+  Max: 6
 
 Metrics/MethodLength:
   Max: 20
+
+Style/AccessModifierDeclarations:
+  Enabled: false
 
 Style/BlockDelimiters:
   Enabled: true
@@ -33,8 +42,20 @@ Style/BlockDelimiters:
 Style/CommentedKeyword:
   Enabled: false
 
+# In some situtations this makes the code look less readable
+Style/GuardClause:
+    Enabled: false
+
+Style/IfUnlessModifier:
+    Enabled: false
+
+# Multiline lambdas are fine too
 Style/LambdaCall:
   Enabled: false
+
+# I find the == 0 quite readable due to many years of programming habits
+Style/NumericPredicate:
+    Enabled: false
 
 Style/StringLiterals:
   Enabled: true
