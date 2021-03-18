@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe 'speed performance' do
+require "rspec-benchmark"
+
+RSpec.describe "speed performance" do
+  include RSpec::Benchmark::Matchers
+
   it "creates merkle trees in linear time" do
     messages = bench_range(8, 8 << 12).map do |n|
       Array.new(n) { "L#{n}" }
