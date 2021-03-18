@@ -1,14 +1,14 @@
 # MerkleTree
 
 [![Gem Version](https://badge.fury.io/rb/merkle_tree.svg)][gem]
-[![Build Status](https://secure.travis-ci.org/piotrmurach/merkle_tree.svg?branch=master)][travis]
+[![Actions CI](https://github.com/piotrmurach/merkle_tree/workflows/CI/badge.svg?branch=master)][gh_actions_ci]
 [![Build status](https://ci.appveyor.com/api/projects/status/kcbi55cyq2wlfuhc?svg=true)][appveyor]
 [![Maintainability](https://api.codeclimate.com/v1/badges/ce00667c8785a62cd892/maintainability)][codeclimate]
 [![Coverage Status](https://coveralls.io/repos/piotrmurach/merkle_tree/badge.svg)][coverage]
 [![Inline docs](http://inch-ci.org/github/piotrmurach/merkle_tree.svg?branch=master)][inchpages]
 
 [gem]: http://badge.fury.io/rb/merkle_tree
-[travis]: http://travis-ci.org/piotrmurach/merkle_tree
+[gh_actions_ci]: https://github.com/piotrmurach/merkle_tree/actions?query=workflow%3ACI
 [appveyor]: https://ci.appveyor.com/project/piotrmurach/merkle-tree
 [codeclimate]: https://codeclimate.com/github/piotrmurach/merkle_tree/maintainability
 [coverage]: https://coveralls.io/r/piotrmurach/merkle_tree
