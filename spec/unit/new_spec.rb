@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MerkleTree, '#new' do
+RSpec.describe MerkleTree, "#new" do
   it "creates tree from even number of messages" do
     merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4")
 
@@ -59,19 +59,19 @@ RSpec.describe MerkleTree, '#new' do
 
   it "changes hashing function" do
     merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4",
-                                 digest: -> (val) { "(#{val}h)"})
+                                 digest: ->(val) { "(#{val}h)" })
 
     expect(merkle_tree.to_h).to eq({
       root: {
         value: "(((L1h)(L2h)h)((L3h)(L4h)h)h)",
         left: {
           value: "((L1h)(L2h)h)",
-          left:  { value: "(L1h)" },
-          right: { value: "(L2h)" },
+          left: { value: "(L1h)" },
+          right: { value: "(L2h)" }
         },
         right: {
           value: "((L3h)(L4h)h)",
-          left:  { value: "(L3h)" },
+          left: { value: "(L3h)" },
           right: { value: "(L4h)" }
         }
       }

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MerkleTree, '#add' do
+RSpec.describe MerkleTree, "#add" do
   it "adds one message" do
     merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4")
     expanded_tree = MerkleTree.new("L1", "L2", "L3", "L4", "L5")
@@ -23,7 +23,7 @@ RSpec.describe MerkleTree, '#add' do
     expect(merkle_tree.root.value).to eq(expanded_tree.root.value)
   end
 
-  it "adds messages double the size"  do
+  it "adds messages double the size" do
     merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4")
     expanded_tree = MerkleTree.new("L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8")
 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MerkleTree, '#update' do
+RSpec.describe MerkleTree, "#update" do
   it "updates a leaf at index position with a new message" do
     merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4")
     updated_merkle_tree = MerkleTree.new("L1", "L2", "L3*", "L4")

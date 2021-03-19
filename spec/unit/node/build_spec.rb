@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MerkleTree::Node, '::build' do
+RSpec.describe MerkleTree::Node, "::build" do
   it "combines two leaf nodes" do
     nodes = [
       MerkleTree::Leaf.build("L1", 0),
@@ -9,7 +9,7 @@ RSpec.describe MerkleTree::Node, '::build' do
 
     node = MerkleTree::Node.build(*nodes)
 
-    expect(node.value).to eq('f2b92f33b56466fce14bc2ccf6a92f6edfcd8111446644c20221d6ae831dd67c')
+    expect(node.value).to eq("f2b92f33b56466fce14bc2ccf6a92f6edfcd8111446644c20221d6ae831dd67c")
     expect(node.left).to eq(nodes[0])
     expect(node.right).to eq(nodes[1])
     expect(node.left_index).to eq(0)

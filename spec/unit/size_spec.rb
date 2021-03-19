@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MerkleTree, '#size' do
+RSpec.describe MerkleTree, "#size" do
   it "returns 0 when tree has no messages" do
     merkle_tree = MerkleTree.new
 

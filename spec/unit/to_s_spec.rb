@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MerkleTree, '#to_s' do
+RSpec.describe MerkleTree, "#to_s" do
   it "prints all tree signatures indented by 2 spaces" do
     merkle_tree = MerkleTree.new("L1", "L2", "L3", "L4")
 

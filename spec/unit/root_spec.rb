@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MerkleTree, '#root' do
+RSpec.describe MerkleTree, "#root" do
   it "returns empty root when no messages" do
     merkle_tree = MerkleTree.new
 

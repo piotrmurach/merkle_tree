@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MerkleTree, '#include?' do
+RSpec.describe MerkleTree, "#include?" do
   it "checks message inclusion in an empty tree" do
     merkle_tree = MerkleTree.new
 

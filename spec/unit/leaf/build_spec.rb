@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MerkleTree::Leaf, '::build' do
+RSpec.describe MerkleTree::Leaf, "::build" do
   it "creates a leaf node" do
     leaf_node = MerkleTree::Leaf.build("L1", 0)
 

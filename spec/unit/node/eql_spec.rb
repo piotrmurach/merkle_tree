@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MerkleTree::Node, '#==' do
+RSpec.describe MerkleTree::Node, "#==" do
   it "compares two different nodes" do
     nodes_left = [
       MerkleTree::Leaf.build("L1", 0),
