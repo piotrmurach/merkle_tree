@@ -18,12 +18,8 @@ Gem::Specification.new do |spec|
     spec.metadata["source_code_uri"] = "https://github.com/piotrmurach/merkle_tree"
     spec.metadata["changelog_uri"] = "https://github.com/piotrmurach/merkle_tree/blob/master/CHANGELOG.md"
   end
-
-  spec.files         = Dir['{lib,spec,examples}/**/*.rb']
-  spec.files        += Dir['{bin,tasks}/*', 'merkle_tree.gemspec']
-  spec.files        += Dir['README.md', 'CHANGELOG.md', 'LICENSE.txt', 'Rakefile']
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.files         = Dir["lib/**/*"]
+  spec.extra_rdoc_files = ["README.md", "CHANGELOG.md", "LICENSE.txt"]
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "rake"
