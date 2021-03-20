@@ -1,8 +1,20 @@
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.7
+  NewCops: enable
 
-Layout/DotPosition:
-    EnforcedStyle: trailing
+Layout/FirstArrayElementIndentation:
+  Enabled: false
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 82
+  Exclude:
+    - "spec/**/*"
+
+Layout/SpaceAroundOperators:
+  Enabled: false
 
 Lint/AssignmentInCondition:
   Enabled: false
@@ -13,7 +25,7 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   CountComments: true
   Max: 25
-  ExcludedMethods: []
+  IgnoredMethods: []
   Exclude:
     - "spec/**/*"
 
@@ -24,30 +36,27 @@ Metrics/CyclomaticComplexity:
   Enabled: true
   Max: 10
 
-Metrics/LineLength:
-  Max: 82
-
 Metrics/ParameterLists:
   Max: 6
 
 Metrics/MethodLength:
   Max: 20
 
+Style/AccessorGrouping:
+  Enabled: false
+
 Style/AccessModifierDeclarations:
   Enabled: false
 
+# { ... } for multi-line blocks is okay
 Style/BlockDelimiters:
-  Enabled: true
+  Enabled: false
 
 Style/CommentedKeyword:
   Enabled: false
 
-# In some situtations this makes the code look less readable
-Style/GuardClause:
-    Enabled: false
-
 Style/IfUnlessModifier:
-    Enabled: false
+  Enabled: false
 
 # Multiline lambdas are fine too
 Style/LambdaCall:
@@ -55,8 +64,10 @@ Style/LambdaCall:
 
 # I find the == 0 quite readable due to many years of programming habits
 Style/NumericPredicate:
-    Enabled: false
+  Enabled: false
+
+Style/StringConcatenation:
+  Enabled: false
 
 Style/StringLiterals:
-  Enabled: true
-  EnforcedStyle: single_quotes
+  EnforcedStyle: double_quotes
