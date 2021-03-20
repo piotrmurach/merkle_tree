@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'openssl'
-require 'English'
+require "English"
+require "openssl"
 
-require_relative 'merkle_tree/leaf'
-require_relative 'merkle_tree/node'
-require_relative 'merkle_tree/version'
+require_relative "merkle_tree/leaf"
+require_relative "merkle_tree/node"
+require_relative "merkle_tree/version"
 
 # A binary tree of one-time signatures known as merkle tree.
 class MerkleTree
@@ -252,7 +252,7 @@ class MerkleTree
   # String representation of this tree
   #
   # @api public
-  def to_s(indent = '')
+  def to_s(indent = "")
     root.to_s(indent)
   end
 end # MerkleTree

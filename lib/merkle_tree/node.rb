@@ -95,17 +95,17 @@ class MerkleTree
       { value: value, left: left.to_h, right: right.to_h }
     end
 
-    def to_s(indent = '')
+    def to_s(indent = "")
       indent + value.to_s + $RS +
-        left.to_s(indent + '  ') + $RS +
-        right.to_s(indent + '  ')
+        left.to_s(indent + "  ") + $RS +
+        right.to_s(indent + "  ")
     end
 
     # An empty node used as placeholder
     # @api private
     class EmptyNode < Node
       def initialize
-        @value  = ''
+        @value  = ""
         @height = 0
         @left   = UNDEFINED
         @right  = UNDEFINED

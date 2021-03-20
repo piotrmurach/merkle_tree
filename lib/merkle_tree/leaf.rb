@@ -50,7 +50,7 @@ class MerkleTree
       { value: value }
     end
 
-    def to_s(indent = '')
+    def to_s(indent = "")
       indent + value
     end
   end # Leaf
