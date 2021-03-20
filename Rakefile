@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require "bundler/gem_tasks"
 
-FileList['tasks/**/*.rake'].each(&method(:import))
+FileList["tasks/**/*.rake"].each(&method(:import))
 
-desc 'Run all specs'
-task ci: %w[ spec ]
+desc "Run all specs"
+task ci: %w[spec]
 
-task default: %w[ spec ]
+task default: %w[spec]
