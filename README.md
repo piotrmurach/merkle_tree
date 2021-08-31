@@ -5,14 +5,14 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/kcbi55cyq2wlfuhc?svg=true)][appveyor]
 [![Maintainability](https://api.codeclimate.com/v1/badges/ce00667c8785a62cd892/maintainability)][codeclimate]
 [![Coverage Status](https://coveralls.io/repos/piotrmurach/merkle_tree/badge.svg)][coverage]
-[![Inline docs](http://inch-ci.org/github/piotrmurach/merkle_tree.svg?branch=master)][inchpages]
+[![Inline docs](https://inch-ci.org/github/piotrmurach/merkle_tree.svg?branch=master)][inchpages]
 
-[gem]: http://badge.fury.io/rb/merkle_tree
+[gem]: https://badge.fury.io/rb/merkle_tree
 [gh_actions_ci]: https://github.com/piotrmurach/merkle_tree/actions?query=workflow%3ACI
 [appveyor]: https://ci.appveyor.com/project/piotrmurach/merkle-tree
 [codeclimate]: https://codeclimate.com/github/piotrmurach/merkle_tree/maintainability
 [coverage]: https://coveralls.io/r/piotrmurach/merkle_tree
-[inchpages]: http://inch-ci.org/github/piotrmurach/merkle_tree
+[inchpages]: https://inch-ci.org/github/piotrmurach/merkle_tree
 
 > A binary tree of one-time signatures known as merkle tree. Often used in distributed systems such as Git, Cassandra or Bitcoin for efficiently summarizing sets of data.
 
@@ -348,7 +348,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/piotrmurach/merkle_tree. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/piotrmurach/merkle_tree. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/piotrmurach/merkle_tree/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
